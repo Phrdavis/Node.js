@@ -3,7 +3,7 @@ const express = require('express');
 
 const app = express();
 
-const handlebars = require('express-handbars')
+const handlebars = require('express-handlebars')
 
 const Sequelize = require('sequelize')
 
@@ -13,7 +13,7 @@ const Sequelize = require('sequelize')
 
 // Config 
     // Template Engine
-    app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+    app.engine('handlebars', handlebars.engine({defaultLayout: 'main'}))
     app.set('view engine', 'handlebars')
 
     // Conexão com banco de dados MySQL
@@ -25,7 +25,7 @@ const Sequelize = require('sequelize')
 // Rotas
 
     app.get('/cad', function(req, res){
-        res.send("RETA DE CADASTRO DE POSTS")
+        res.send("ROTA DE CADASTRO DE POSTS")
     })
 
 
