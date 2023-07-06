@@ -3,12 +3,13 @@ const express = require('express');
 
 const app = express();
 
+
+
 app.get("/", function(req, res){
 
     res.sendFile(__dirname+ "/Html/index.html");
 
 });
-
 
 app.get("/sobre", function(req, res){
     res.sendFile(__dirname+ "/Html/sobre.html");
@@ -34,10 +35,10 @@ app.get("/ola/:nome/:cargo", function(req, res){
 
 
 
-
+const port = 8081;
 
 //Ultima linha do Código
-app.listen(8081, function(){
+app.listen(port, function(){
 
     console.log("Servidor rodando na url: http://localhost:8081")
 
