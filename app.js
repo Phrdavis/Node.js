@@ -3,30 +3,30 @@ const express = require('express');
 
 const app = express();
 
+const handlebars = require('express-handbars')
 
-
-app.get("/", function(req, res){
-
-    res.sendFile(__dirname+ "/Html/index.html");
-
-});
-
-app.get("/sobre", function(req, res){
-    res.sendFile(__dirname+ "/Html/sobre.html");
-})
-
-app.get("/blog", function(req, res){
-    res.send("Bem-vindo ao meu blog!");
-})
-
-app.get("/ola/:nome/:cargo", function(req, res){
-    res.send("<h1>Ola "+req.params.nome+"</h1>" + "<p>Seu cargo e "+req.params.cargo+"</p>");
-})
+const Sequelize = require('sequelize')
 
 
 
 
 
+// Config 
+    // Template Engine
+    app.engine('handlebars', handlebars({defaultLayout: 'main'}))
+    app.set('view engine', 'handlebars')
+
+    // Conexão com banco de dados MySQL
+    const sequelize = new Sequelize('test', 'root', '', {
+        host: 'localhost',
+        dialect: 'mysql'
+    })
+
+// Rotas
+
+    app.get('/cad', function(req, res){
+        res.send("RETA DE CADASTRO DE POSTS")
+    })
 
 
 
@@ -35,9 +35,12 @@ app.get("/ola/:nome/:cargo", function(req, res){
 
 
 
-const port = 8081;
+
+
+
 
 //Ultima linha do Código
+const port = 8081;
 app.listen(port, function(){
 
     console.log("Servidor rodando na url: http://localhost:8081")
