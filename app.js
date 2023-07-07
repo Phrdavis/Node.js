@@ -8,6 +8,8 @@
 
     const bodyParser = require('body-parser')
 
+    const Post = require('./Models/Post')
+
 
 
 
@@ -23,6 +25,10 @@
     
 
 // Rotas
+    app.get('/', function(req, res){
+        res.render('home')
+    })
+
     app.get('/cad', function(req, res){
         res.render('formulario')
     })
@@ -33,7 +39,16 @@
     // é necessario ter o envio de dados por um metodo POST;
     app.post('/add', function(req, res){
         
-        res.send(`Texto: ${req.body.titulo} Conteudo: ${req.body.conteudo}`)
+        // Inserindo conteudo dentro da tabela Postagens
+        Post.create({
+            titulo: req.body.titulo,
+            conteudo: req.body.conteudo
+        }).then(function(){
+            res.redirect('/')
+        }).catch(function(erro){
+            res.send("Houve um erro: "+ erro)
+        })
+
     })
 
 
