@@ -26,7 +26,9 @@
 
 // Rotas
     app.get('/', function(req, res){
-        res.render('home')
+        Post.all().then(function(posts){
+            res.render('home', {})
+        })
     })
 
     app.get('/cad', function(req, res){
