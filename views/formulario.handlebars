@@ -1,0 +1,16 @@
+{{!-- method: É a forma como o formulario vai ser enviado para o Back-end --}}
+{{!-- POST ->  Envia os dados do formulario para a próxima rota sem ser pela URL 
+* Recomenda-se utilizar POST *--}}
+
+{{!-- GET  ->  Envia os dados do formulario pela URL do site (Envia todos os dados de forma visível, incluindo senhas!)
+* Recomenda-se a não utilizar*--}}
+
+{{!-- action: Passa a rota para qual o formulario vai enviar os dados --}}
+
+<form action="/add" method="POST">
+    <p>Titulo</p>
+    <input type="text" name="titulo" id="">
+    <p>Conteudo</p>
+    <textarea name="conteudo"></textarea>
+    <button type="submit">Cadastrar Postagem</button>
+</form>

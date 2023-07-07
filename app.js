@@ -1,11 +1,12 @@
 
-const express = require('express');
+// Variaveis
+    const express = require('express');
 
-const app = express();
+    const app = express();
 
-const handlebars = require('express-handlebars')
+    const handlebars = require('express-handlebars')
 
-const Sequelize = require('sequelize')
+    const Sequelize = require('sequelize')
 
 
 
@@ -23,9 +24,16 @@ const Sequelize = require('sequelize')
     })
 
 // Rotas
-
     app.get('/cad', function(req, res){
-        res.send("ROTA DE CADASTRO DE POSTS")
+        res.render('formulario')
+    })
+
+    // app.post:  É utilizado quando uma ha uma requisição em metodo POST;
+    // Serve para receber dados de formularios;
+    // Rotas do tipo POST não possíveis de acessar através da URL
+    // é necessario ter o envio de dados por um metodo POST;
+    app.post('/add', function(req, res){
+        res.send('Formulario Recebido!')
     })
 
 
@@ -40,9 +48,9 @@ const Sequelize = require('sequelize')
 
 
 //Ultima linha do Código
-const port = 8081;
-app.listen(port, function(){
+    const port = 8081;
+    app.listen(port, function(){
 
-    console.log("Servidor rodando na url: http://localhost:8081")
+        console.log("Servidor rodando na url: http://localhost:8081")
 
-}) //http://localhost:8081
+    }) //http://localhost:8081
