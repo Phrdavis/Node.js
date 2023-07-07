@@ -4,7 +4,7 @@ const Sequelize = require('sequelize')
 
 // Config
     // Conexão com banco de dados MySQL
-    const sequelize = new Sequelize('test', 'root', '', {
+    const sequelize = new Sequelize('postApp', 'root', '', {
         host: 'localhost',
         dialect: 'mysql'
     })
