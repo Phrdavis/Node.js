@@ -26,8 +26,8 @@
 
 // Rotas
     app.get('/', function(req, res){
-        Post.all().then(function(posts){
-            res.render('home', {})
+        Post.findAll().then(function(posts){
+            res.render('home', {posts: posts}) //TODO
         })
     })
 
@@ -68,6 +68,6 @@
     const port = 8081;
     app.listen(port, function(){
 
-        console.log("Servidor rodando na url: http://localhost:8081")
+        console.log(`Servidor rodando na url: http://localhost:${port}`)
 
     }) //http://localhost:8081
