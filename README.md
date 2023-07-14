@@ -5,6 +5,13 @@ Para rodar o projeto
 ### npm app.js
 
 
+#### O projeto possui 4 rotas
+
+- '/'     Rota principal
+- '/cad'  Rota do formulario
+- '/add'  Rota para adicionar nova postagem
+- '/remove/:id'  Rota para deletar postagem
+  
 #### Esse projeto irá envolver:
 
 - Back-End
