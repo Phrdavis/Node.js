@@ -10,8 +10,8 @@ const Post = db.sequelize.define('postagens', {
 })
 
 //Tabela já criada
-// Post.sync({force: true})
+    // Post.sync({force: true})
 
 
 //Serve para acessar a variavel Post em outros arquivos
-module.exports = Post
+    module.exports = Post
