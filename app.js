@@ -31,7 +31,11 @@
 
 // Rotas
     app.get('/', function(req, res){
-        Post.findAll().then(function(posts){
+        // Pegando todos os posts criados dentro do banco 
+        // Redirecionando rota para pagina 'home'
+        // Ordenando por id mais recente para o mais antigo
+
+        Post.findAll({order: [['id', 'DESC']]}).then(function(posts){
             res.render('home', {posts: posts})
         })
     })
@@ -56,6 +60,14 @@
             res.send("Houve um erro: "+ erro)
         })
 
+    })
+
+    app.get('/deletar/:id', function(req, res){
+        Post.destroy({where: {'id': req.params.id}}).then(function(){
+            res.send("Postagem deletada com sucesso!")
+        }).catch(function(erro){
+            res.send("Essa postagem não existe!")
+        })
     })
 
 
